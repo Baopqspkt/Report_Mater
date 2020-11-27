@@ -1,0 +1,16 @@
+clc;
+clf;
+n0=10;
+n=0:40; a=0.3; b=-2;
+xn=a*cos(2*pi*0.1*n)+b*cos(2*pi*0.4*n);
+xn0=[zeros(1,n0) xn];
+x=a*x1+b*x2;
+num=[2.2403 2.4908 2.2403];
+den=[1 -0.4 0.75];
+ic=[0 0];                              
+yn=filter(num,den,xn,ic);            
+yn0=filter(num,den,x2,ic);           
+dn=yn-yn0(1+n0:41+n0);             
+subplot(3,1,1); stem(n,yn);
+subplot(3,1,2); stem(n,yn0(1:41));
+subplot(3,1,3); stem(n,dn);

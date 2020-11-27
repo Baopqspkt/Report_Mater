@@ -1,0 +1,13 @@
+clf;
+c=-(1/20)+(pi/6)*1i;
+k=2;
+n=0:97;
+x=k*exp(c*n);
+subplot(2,1,1);
+stem(n,real(x));
+xlabel('Chi so thoi gian n'); ylabel('Bien do');
+title('Phan thuc');
+subplot(2,1,2);
+stem(n,imag(x));
+xlabel('Chi so thoi gian n'); ylabel('Bien do');
+title('Phan ao');

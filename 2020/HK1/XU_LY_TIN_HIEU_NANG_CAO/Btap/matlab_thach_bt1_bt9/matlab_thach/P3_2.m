@@ -1,0 +1,18 @@
+clf;
+clc;
+w=-pi:2*pi/255:pi; wo=0.49*pi; D=28;
+x=[0 1 2 3 4 5 6 7 8];
+h1=freqz(x,1,w);
+h2=freqz([zeros(1,D) x],1,w);
+subplot(2,2,1);
+plot(w/pi,abs(h1)); grid;
+title('Pho bien do cua day goc');
+subplot(2,2,2);
+plot(w/pi,abs(h2)); grid;
+title('Pho bien do cua day bi dich');
+subplot(2,2,3);
+plot(w/pi,angle(h1)); grid;
+title('Pho pha cua day goc');
+subplot(2,2,4);
+plot(w/pi,angle(h2)); grid;
+title('Pho pha cua day bi dich');

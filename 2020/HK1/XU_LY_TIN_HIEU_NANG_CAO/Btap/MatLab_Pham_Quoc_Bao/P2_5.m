@@ -1,0 +1,18 @@
+clc;
+clf;
+x=[1 zeros(1,42)];
+n=0:42;
+num=[0.06 -0.21 0.32 -0.31 0.1];
+den=[1 1.6 2.287 1.329 0.68];                              
+y=filter(num,den,x);            
+num1=[0.3 -0.2 0.4]; den1=[1 0.9 0.8];      
+num2=[0.2 -0.5 0.3]; den2=[1 0.7 0.85]; 
+y1=filter(num1,den1,x);  
+y2=filter(num2,den2,y1);
+d=y-y2;
+subplot(3,1,1); stem(n,y); ylabel('Bien do');
+title('Tin hieu ra cua he thong bac 4'); grid;
+subplot(3,1,2); stem(n,y2); ylabel('Bien do');
+title('Loi ra cua he thong noi tiep'); grid;
+subplot(3,1,3); stem(n,d); xlabel('Chi so thoi gian n'); ylabel('Bien do');
+title('Tin hieu sai so'); grid;
