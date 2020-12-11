@@ -1,0 +1,48 @@
+[System]
+Name='fuzzy_2in_1out_CO2_PM10'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=9
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='CO2'
+Range=[0 2000]
+NumMFs=3
+MF1='Low':'trapmf',[0 0 1000 1200]
+MF2='Medium':'trapmf',[1000 1200 1400 1600]
+MF3='High':'trapmf',[1400 1600 2000 2000]
+
+[Input2]
+Name='PM10'
+Range=[0 500]
+NumMFs=3
+MF1='Low':'trapmf',[0 0 150 200]
+MF2='Medium':'trapmf',[150 200 300 350]
+MF3='High':'trapmf',[300 350 500 500]
+
+[Output1]
+Name='Speed'
+Range=[0 200]
+NumMFs=4
+MF1='stop':'trimf',[0 0 10]
+MF2='short':'trimf',[10 20 30]
+MF3='medium':'trimf',[100 120 140]
+MF4='high':'trimf',[120 160 200]
+
+[Rules]
+1 1, 1 (1) : 1
+1 2, 2 (1) : 1
+1 3, 2 (1) : 1
+2 1, 3 (1) : 1
+2 2, 3 (1) : 1
+2 3, 3 (1) : 1
+3 1, 4 (1) : 1
+3 2, 4 (1) : 1
+3 3, 4 (1) : 1
